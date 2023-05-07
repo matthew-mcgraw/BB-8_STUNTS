@@ -1,0 +1,66 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/sphero/bb8/protos/BB-8.proto"
+
+WorldInfo {
+  basicTimeStep 64
+}
+Viewpoint {
+  orientation 0.002787164610399604 0.9999920408227854 -0.0028548212755437063 1.5458071032716272
+  position -0.6929480170736934 -0.030828197537001674 26.466235147946225
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 15 20
+  wallThickness 0.1
+  wallHeight 1.5
+}
+DEF GOAL Solid {
+  translation -7 -7.25 0.001
+  children [
+    DEF GOAL Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+        size 1 5.5
+      }
+    }
+  ]
+  name "solid(1)"
+  contactMaterial "GOAL"
+  boundingObject USE GOAL
+  locked TRUE
+}
+DEF OBSTACLE Solid {
+  translation -5 -4 0.01
+  children [
+    DEF OBSTACLE Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+        size 5 1
+      }
+    }
+  ]
+  contactMaterial "OBSTACLE"
+  boundingObject USE OBSTACLE
+  locked TRUE
+}
+DEF BB-8 BB-8 {
+  translation 0 9 0
+  rotation 0 0 1 -1.570796
+  controller "BB-8_SP2_RL_GAO_Controller_WC_D2W_Challenging"
+  supervisor TRUE
+}

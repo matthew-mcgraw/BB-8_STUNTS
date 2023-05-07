@@ -1,0 +1,48 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/sphero/bb8/protos/BB-8.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.2142542364321444 0.7387719783993114 0.6389922425998973 0.8521343412211088
+  position -8.13624646374711 -4.142947329723571 6.165179261567026
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 3
+  wallThickness 0.1
+  wallHeight 0.8
+}
+DEF BB-8 BB-8 {
+  translation -4.5 0 0.1
+  controller "SP3_LoadedModel_Controller_FINAL"
+  supervisor TRUE
+}
+DEF HOOP Solid {
+  translation -2.07752e-06 2.08801e-06 1
+  rotation 0.7071062811861719 0.7071072811865696 -3.3905013482585576e-09 3.14159
+  scale 0.001 0.001 0.001
+  children [
+    DEF HOOP Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.5 1
+        roughness 1
+        metalness 0
+      }
+      geometry Mesh {
+        url [
+          "../BB-8_hoop.stl"
+        ]
+        name "HOOP"
+      }
+    }
+  ]
+  boundingObject USE HOOP
+}
