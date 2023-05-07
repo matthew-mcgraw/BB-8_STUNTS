@@ -1,2 +1,2 @@
 # BB-8_STUNTS
-deep RL implementation of BB-8 robots using various algorithms created by Matthew McGraw
+This project is a Deep RL implementation of PPO for the Sphero BB-8 robot in Webots using an altered version of the PPO algorithm provided by [Deepbots](https://github.com/aidudezzz/deepbots)
